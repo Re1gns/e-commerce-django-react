@@ -21,6 +21,8 @@ class ProductCategory(models.Model):
     
 #Products
 class Product(models.Model):
+    vendor = models.ForeignKey(Vendor, on_delete=models.SET_NULL, null=True)
+    category = models.ForeignKey(ProductCategory, on_delete=models.SET_NULL, null=True)
     title = models.CharField(max_length=200)
     detail = models.TextField(null=True)
     price = models.FloatField()
